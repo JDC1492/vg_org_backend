@@ -36,6 +36,7 @@ class GamesController < ApplicationController
   # DELETE /games/1
   def destroy
     @game.destroy
+    render json: @game
   end
 
   private
@@ -46,6 +47,6 @@ class GamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def game_params
-      params.require(:game).permit(:title, :release_year, :developer, :genre, :description, :cover_art, :console_id)
+      params.require(:game).permit(:title, :release_year, :console, :developer, :genre, :description, :cover_art, :console_id)
     end
 end

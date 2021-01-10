@@ -12,24 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2021_01_10_221940) do
 
-  create_table "consoles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.integer "release_year"
+    t.string "console"
     t.string "developer"
     t.string "genre"
     t.string "description"
     t.string "cover_art"
-    t.integer "console_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["console_id"], name: "index_games_on_console_id"
   end
 
-  add_foreign_key "games", "consoles"
 end
